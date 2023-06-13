@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="/Traceability_UI/links/axios v0.19.0.js"></script>
+</head>
+<body onload="load()">
+    <script>
+        async function load(){
+
+            var origCollection=[]
+            var createdCollection=[]
+            var notFCollection=[]
+            var countCol=0
+            await axios
+            .get('http://192.168.2.101/api-hardnessReport/harndessReportAPIView/')
+            .then(res => {
+                
+                for(var i=0; i<20; i++){
+                    origCollection.push(res.data[i])
+                }
+            })
+            await axios
+            .get('http://192.168.2.223:9102/gethardness')
+            .then(res => {
+                
+                for(var i=0; i<res.data.length; i++){
+                    createdCollection.push(res.data[i])
+                }
+            })
+            
+            console.log(createdCollection.length)
+
+                for(var t=0; t<origCollection.length; t++){
+                    countCol=0
+                    for(var y=0; y<createdCollection.length; y++){
+                        if(origCollection[t].id==createdCollection[y].id){
+                            countCol++
+                        }
+                    }
+                    if(countCol>0){
+                        console.log("found")
+                    }else{
+                        console.log("Not-found")
+                        notFCollection.push(origCollection[t])
+                    }
+                }
+            console.log(origCollection)
+            console.log(createdCollection)
+            console.log(notFCollection)
+            
+        }
+
+    </script>
+</body>
+</html>

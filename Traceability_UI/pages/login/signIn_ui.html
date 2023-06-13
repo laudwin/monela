@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traceable RDM</title>
+
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="./signIn.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
+    <!--*********************************************<Links>*********************************************-->
+        <script src="/links/jQuery v3.5.1.js"></script>
+        <script src="/links/axios v0.19.0.js"></script>
+        <script src="/links/table2excel.js"></script>
+        <script src="/links/sweetAlert2.js"></script>
+    <!--*********************************************<Scripts>*********************************************-->
+    <script src="/index.js"></script>
+   
+  
+
+</head>
+<body>
+    <div class="heading" onclick=" homePage()"><img src="/links/icons/RDM_Logo.svg" class="rdmLogo"></img><h1 class="companyName">Rheinmetall Denel Munitions</h1></div>
+    <br>
+    <center><div class="formLayout">
+    
+        <div class="formLayout-view">
+            <div class="signHead"><i class="fa fa-sign-in" ></i>  Sign-in</div>
+            <br><br>
+            <div>
+                <label><b>Username</b></label><br>
+                <input type="text" placeholder="Enter Username" id="username" name="username" autocomplete="off" onkeydown="enter4AS(event)" required>
+                <div id="reqUser"></div><br><br>
+    
+                <label><b>Password</b></label><br>
+                <input type="password" placeholder="Enter Password" id="password" name="password" onkeydown="enter4AS(event)" required>
+                <div id="reqPass"></div><br><br><br>
+    
+                <button type="submit" class="submitButton" id="sbmtBtn" name="login" onclick="signIn()">Login</button><br><br>
+
+            </div>
+        </div>
+        <br><br><br>
+            <center><div class="footer">Traceable RDM (version 2.0)</div></center>
+    </div></center>
+
+
+    <script>
+        function enter4AS(e){
+            if (e.keyCode == 13){//enter key
+                document.getElementById('sbmtBtn').click()
+            }
+        }
+    </script>
+</body>
+</html>

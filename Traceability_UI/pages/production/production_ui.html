@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traceable RDM</title>
+
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="./production.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
+    <!--*********************************************<Links>*********************************************-->
+        <script src="/links/jQuery v3.5.1.js"></script>
+        <script src="/links/axios v0.19.0.js"></script>
+        <script src="/links/table2excel.js"></script>
+        <script src="/links/sweetAlert2.js"></script>
+  
+      <!--*********************************************<Scripts>*********************************************-->
+        <script src="/index.js"></script>
+        <script src="./production.js"></script>
+        
+</head>
+<body onload="startup()">
+    <div class="container">
+        <div class="item1"><!--<top nav>-->
+          <div class="heading" onclick=" homePage()"><img src="/links/icons/RDM_Logo.svg" class="rdmLogo" /><h1>Rheinmetall Denel Munitions</h1></div>
+          <div id="userInfo"></div>
+        </div><br><br><br>
+        
+        <div class="item2" id="item2">
+            <center><h2>Production</h2><hr></center>
+        </div> 
+
+        <center><div class="mainItems" id="mainItems">
+            <div class="tab-container">
+                <button class="tablink" onclick="openPage('Data_Capture', this, 'orangered')" id="defaultOpen">Data_Capture</button>
+                <button class="tablink" onclick="openPage('Shell_history', this, 'orangered')" id="IncompTab">Shell_history</button>
+                <button class="tablink" onclick="openPage('Reports', this, 'orangered')">Reports</button>
+            </div>
+                <div id="Data_Capture" class="tabcontent"></div>
+
+                <div id="Shell_history" class="tabcontent"></div>
+
+
+                <div id="Reports" class="tabcontent"></div>
+
+        </div></center>
+    </div>
+    
+    
+    <script>
+
+    var sessionName = localStorage.getItem("mysessionName");
+    var sessionStatus = localStorage.getItem("mysessionStat");
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+
+        /*************************************************************************Change Views**********************************************************************************/
+/***********************************************************************************************************************************************************************/
+function openPage(pageName,elmnt,color) {
+
+if(sessionStatus == "true"){
+
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+    elmnt.style.fontWeight = "bold";
+        
+        if(pageName == "Data_Capture"){
+            Data_Capture_view()  
+        }
+        if(pageName == "Shell_history"){
+            Shell_history_view()
+        }
+        if(pageName == "Reports"){
+            Reports_view()
+        }                
+    
+}else{
+    swal.fire({
+        title: "SESSION EXPIRED!!!!",
+        text: "please Sign-in",
+        icon: "error",
+        confirmButtonText: "sign_in",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location="../login/signIn_ui.html";
+            return 0;
+        }
+        });
+}
+}
+/**************************************************************************************************************************************************************/
+    </script>
+</body>
+</html>

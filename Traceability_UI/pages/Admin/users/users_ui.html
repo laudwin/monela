@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traceable RDM</title>
+
+    <link rel="stylesheet" href="/RDMTraceUI/index.css">
+    <link rel="stylesheet" href="/RDMTraceUI/pages/login/signIn.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
+    <!--*********************************************<Links>***********************************************-->
+        <script src="/RDMTraceUI/links/jQuery v3.5.1.js"></script>
+        <script src="/RDMTraceUI/links/axios v0.19.0.js"></script>
+        <script src="/RDMTraceUI/links/table2excel.js"></script>
+        <script src="/RDMTraceUI/links/sweetAlert2.js"></script>
+    <!--*********************************************<Scripts>*********************************************-->
+        <script src="../admin.js"></script>
+
+</head>
+<body>
+    
+   <div class="heading" onclick="adminView()"><img src="/RDMTraceUI/links/icon.ico" class="rdmLogo" /><h1 class="companyName">Rheinmetall Denel Munitions</h1></div>
+    <br>
+    <center><div class="formLayout">
+    
+            <div class="formLayout-view">
+                <div class="signHead"><i class="fa-solid fa-people-group"></i> Users</div><hr>
+                <br>
+                <div class="formFields">
+
+                <div id="messageboxArea"></div><br>
+                    <label for="Utype"><b>User Type</b></label><br>
+                    <select id="usertype" class="cascade-dropdown">
+                        <option value="NDT" selected="selected">NDT</option>
+                        <option value="Stamping" >Stamping</option>
+                        <option value="Data_Capture" >Data_Capture</option>
+                        <option value="Quality_Inspector" >Quality_Inspector</option>
+                        <option value="COC_Quality" >COC_Quality</option>
+                        <option value="Management" >Management</option>
+                        <option value="System_Admin" >System_Admin</option>
+
+
+                    </select><br><br>
+
+                    <label for="fname"><b>First Name</b></label><br>
+                    <input type="text" placeholder="Enter First Name" id="createfirstname" style="text-transform: uppercase;" autocomplete="off" required><br><br>
+
+                    <label for="lname"><b>Last Name</b></label><br>
+                    <input type="text" placeholder="Enter last Name" id="createlastname" style="text-transform: uppercase;" autocomplete="off" required><br><br>
+
+                    <label for="cnumber"><b>Clock Number</b></label><br>
+                    <input type="text" placeholder="Enter clock Number" id="createclocknumber" autocomplete="off" required><br><br>
+
+                    <label for="Cpsw"><b>Password</b></label><br>
+                    <input type="password" placeholder="Enter Password" id="createpassword" onkeyup="check();" required><br><br>
+
+                    <label for="Ccpsw"><b>Confirm Password</b></label><br>
+                    <input type="password" placeholder="Confirm Password" id="confirmpassword" onkeyup="check();" required><br>
+                        <span id="message"></span><br><br>
+
+                    <button type="submit" class="submitButton" name="insert" onclick="register()">Register</button><br><br>
+                    
+                        <span>already have an account <a href="./signIn_ui.html">sign in</a></span>
+                </div>
+            </div>
+    </div></center>
+
+
+</body>
+</html>

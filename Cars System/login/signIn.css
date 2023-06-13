@@ -1,0 +1,89 @@
+.formLayout{
+    width: 50%;
+    margin-top: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.heading{
+    border-bottom: 2px solid black;
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+}
+.signHead{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 30px;
+}
+.rdmLogo{
+    width: 30px;
+    height: 30px;
+    margin-top: 0;
+}
+
+.companyName{
+    color: black;
+}
+/****************************************************************************************/
+input{
+    background-color: rgb(209, 209, 209);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    width: 60%;
+    text-align: center;
+}
+label{
+    font-size: 25px;
+}
+select{
+    background-color: rgb(209, 209, 209);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    width: 60%;
+    text-align: center;
+}
+/****************************************************************************************/
+.submitButton{
+    background-color: rgb(80, 80, 80);
+    color: white;
+    width: 60%;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+.submitButton:hover{
+    background-color: orangered;
+    color: black;
+    font-weight: bold;
+    width: 58%;
+    padding: 8px;
+    cursor: pointer;
+}
+#reqPass{font-size: 16px;}
+#reqUser{font-size: 16px;}
+/********************************************************************************************/
+.prvlg{
+    background-color: rgb(209, 209, 209);
+    /* display: flex; */
+    justify-content: center;
+    height: 30px;
+    border-radius: 10px;
+}
+.prvlg.prvlg{
+    height: auto;
+}
+.prvlgstyl{
+    font-size: 16px;
+}
+.checkBck{
+    margin: 0;
+    padding: 0;
+    width: 10px;
+    margin-left: 10px;
+}
+/********************************************************************************************/

@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traceable RDM</title>
+
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="../production.css">
+    <link rel="stylesheet" href="../traceproduction/PSM1.css">
+    <link rel="stylesheet" href="../traceproduction/PSM2.css">
+    <link rel="stylesheet" href="./history.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
+    <!--*********************************************<Links>*********************************************-->
+        <script src="/links/jQuery v3.5.1.js"></script>
+        <script src="/links/axios v0.19.0.js"></script>
+        <script src="/links/table2excel.js"></script>
+        <script src="/links/sweetAlert2.js"></script>
+  
+      <!--*********************************************<Scripts>*********************************************-->
+        <script src="/index.js"></script>
+        <script src="../production.js"></script>
+        <script src="./history.js"></script>    
+ 
+      <!--*********************************************<********>*********************************************-->
+</head>
+<body id="body" style="zoom: 100%" onload="startSystem()">
+
+    <div class="container">
+        <div class="item1"><!--<top nav>-->
+          <div class="heading" onclick=" homePage()"><img src="/links/icons/RDM_Logo.svg" class="rdmLogo" /><h1>Rheinmetall Denel Munitions</h1></div>
+          <div id="userInfo"></div>
+        </div><br><br><br>
+
+        <div class="item2" id="item2">
+            <h2 class="productDescription"> FILE: Shell History
+            <button class="closebut" onclick="closeTable()">Close</button>
+            <button class="Reportbut" onclick="startSystem()">New_Search</button></h2><hr>
+        </div>
+        <div id="msgDetails"></div><div id="dataDetails"></div><br>
+        <center><div id="ShellHistory" class="tabcontent"></div></center>  
+
+
+</body>
+</html>

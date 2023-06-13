@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Traceable RDM</title>
+    
+        <link rel="stylesheet" href="/index.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+          
+        <!--*********************************************<Links>*********************************************-->
+            <script src="/links/jQuery v3.5.1.js"></script>
+            <script src="/links/axios v0.19.0.js"></script>
+            <script src="/links/table2excel.js"></script>
+            <script src="/links/sweetAlert2.js"></script>
+      
+          <!--*********************************************<Scripts>*********************************************-->
+            <script src="./admin.js"></script>
+
+            
+          
+    </head>
+    <body onload="startup()">
+        
+        <div class="container">
+            <div class="item1"><!--<top nav>-->
+              <div class="heading" onclick="homePage()"><img src="/links/icons/RDM_Logo.svg"/><h1> Rheinmetall Denel Munitions</h1></div>
+                <div id="userInfo"></div>
+            </div><br><br>
+            
+            <div class="item2">
+                <center><h2>Administration</h2><hr></center>
+            </div>
+            <center><div class="maindisplay"> 
+                <div class="item4">
+                  
+                    <!-- <button class="item4button" onclick="indexpage()"><i class="fa-solid fa-house-chimney"></i> Home</button> -->
+                    <button class="item4button" onclick="registerPage()"><i class="fas fa-id-card"></i> Register</button>
+                    <div id="adminTabs"></div>
+                    <!-- <button class="item4button" onclick="Users()"><i class="fa-solid fa-people-group"></i> Users</button><br>
+                    <button class="item4button"><i class="fa-solid fa-truck"></i> WIP</button>
+                    <button class="item4button" onclick="cocPage()"><i class="fa-solid fa-check-to-slot"></i> CofC's</button><br><br><br><br> -->
+                    <br><br><br><br>
+                    <div class="footer">Traceable RDM Boksburg(version 2.0)</div>
+                </div>
+            </div></center>
+        </div>
+    
+    </body>
+</html>

@@ -1,0 +1,238 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traceable RDM</title>
+
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="../production.css">
+    <link rel="stylesheet" href="./PSM1.css">
+    <link rel="stylesheet" href="./PSM2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
+    <!--*********************************************<Links>*********************************************-->
+        <script src="/links/jQuery v3.5.1.js"></script>
+        <script src="/links/axios v0.19.0.js"></script>
+        <script src="/links/table2excel.js"></script>
+        <script src="/links/sweetAlert2.js"></script>
+  
+      <!--*********************************************<Scripts>*********************************************-->
+        <script src="/index.js"></script>
+        <script src="../production.js"></script> 
+        
+        <!--*********************************************<Scripts>*********************************************-->
+          <script src="./content.js"></script>
+          <script src="./reportPSM.js"></script>
+          <script src="./filterPSM.js"></script>
+          <script src="./addshell.js"></script>
+          <script src="./delete_n_edit.js"></script>
+          
+      <!--*********************************************<********>*********************************************-->
+</head>
+<body onload="startup();userValidation();mainsheetview();employeesList()">
+
+    <div class="container">
+        <div class="item1"><!--<top nav>-->
+          <div class="heading" onclick=" homePage()"><img src="/links/icons/RDM_Logo.svg" class="rdmLogo" /><h1>Rheinmetall Denel Munitions</h1></div>
+          <div id="userInfo"></div>
+        </div><br><br><br>
+
+        <div class="item2" id="item2">
+            <h2 class="productDescription"> FILE: Production Sheet Master<button class="closebut" onclick="closeTable()">Close</button></h2><hr>
+        </div>
+    
+
+      <div class="grid item3"><!--<add shell form>-->
+          <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn"><b><i class="fas fa-plus-circle"></i> New_Shell</b></button>
+            <div id="myDropdown" class="dropdown-content">
+
+                <div class=shellStatus id=shellStatus>no shell added</div><hr>
+                <label for="shell"  id="form-1">Shell No :</label>
+                <input type="text" id="shell" class=form-select onkeydown="ASreroute(event)" autocomplete="off" placeholder="shell Number" maxlength = "3"><br><br>
+                <label for="cast" id="form-1">Cast Code :</label>
+                <input type="text" id="cast" class=form-select onkeydown="ASreroute(event)" autocomplete="off" placeholder="Cast Code" maxlength = "3"><br><br>
+                <label for="heat" id="form-1">Heat code :</label>
+                <input type="text" id="heat" class=form-select onkeydown="ASreroute(event)" autocomplete="off" placeholder="Heat Code" maxlength = "3"><br><br>
+                <label for="date" id="form-1">Date :</label>
+                <input type="date" id="Sdate" class=form-select autocomplete="off" ><br><br>
+                
+                <label for="operator" id="form-1" >Operator :</label>
+                <input type="text" id="operator" class=form-select autocomplete="off" onkeyup=searchOperator() list="OperatorDropdown" placeholder="Operator" ><br><br>
+          
+                <label for="supervisor" id="form-1">Supervisor :</label>
+                <input type="text" id="supervisor" class=form-select autocomplete="off" onkeyup=searchSupervisor() list="SupervisorDropdown" placeholder="Supervisor" maxlength = "30"><br><br>
+
+                <label for="teamleader" id="form-1">TeamLeader :</label>
+                <input type="text" id="teamleader" class=form-select autocomplete="off" onkeyup=searchTeamLeader() list="TeamleaderDropdown" placeholder="TeamLeader" maxlength = "30"><br><br>
+
+                <label for="shift" id="form-1">Shift :</label>
+                    <select class="form-select1" id="shift">
+                    <option selected>Select shift</option>
+                    <option value="Morning">Morning</option>
+                    <option value="Afternoon">Afternoon</option>
+                    <option value="Night">Night</option>
+                    </select>
+
+                <!-- <br><br><label for="product" id="form-1">Product :</label>
+                <input type="text" id="product" class=form-select autocomplete="on" placeholder="Product" maxlength = "30"><br><br> -->
+                <br><br>
+                <label for="operation" id="form-1">Operation No :</label>
+                <input type="text" id="operation" class=form-select autocomplete="on" placeholder="Operation" maxlength = "7"><br><br>
+
+                <label for="machine_no" id="form-1">Machine No :</label>
+                <input type="text" id="machine_no" class=form-select onkeydown="ASreroute(event)" autocomplete="on" placeholder="Machine No." ><br><br>
+
+                <label for="determination" id="form-1">Determination :</label>
+                    <select class="form-select1" id="determination" onkeydown="ASreroute(event)"><br><br>
+                    <option selected>Select determination</option>
+                    <option value="Pass">Pass</option>
+                    <option value="Rework">Rework</option>
+                    <option value="Scrap">Scrap</option>
+                    </select>
+                  <br><br><label for="comment" id="form-1">Comment :</label>
+                  <input type="text" id="comment" class=form-select onkeydown="ASreroute(event)" value="None"></input><br><br>
+                <!--<input type="text" id="comment" placeholder="Comment" ><br><br>
+                <input type="text" id="reject" placeholder="Reject" ><br><br>-->
+                  <div class="buttonN">
+                    <center><button class="add_shell" id="addshell" onclick="validate()"><i class="fas fa-upload"></i> Add_Shell</button>
+                    <button class="close"  onclick="close_new_shell()"><i class="fas fa-window-close"></i> Close</button></center>
+                  </div>
+                </div>
+            
+              
+            
+            
+          </div>
+
+          <div class="navigationBar"><!--<menu bar>-->
+            
+            <a id="Mainbut" onclick="mainsheetview()">Main_Sheet</a>
+            <a id="INCbut" onclick="IncidentSheetView()" >Inc_Shell</a>
+            <a id=Reportid onclick=ReportDC() >Report</a>
+            <div id="dataDetails"></div>
+            <div id="batchEdit"></div>
+            
+            <div class="fltdropdown"><!--<filter drop-down>-->
+                  <button class="fltB" id="fltbut" onclick="filterform()">Filter</button>
+                    <div class="fltdropdown-content" id="fltDC">
+                      <button class="close2"  onclick="closefilterform()"> Close</button><hr>
+                      <div class="filterCont">
+                        <div class="filterbyShell">
+                          Shell: <input type="text" class="fltPH" id="filtershell" placeholder="enter Shell Number" autocomplete="off"></input>
+                          <br>Cast:  <input type="text" class="fltPH" id="filtercast" placeholder="enter Cast Code" autocomplete="off"></input>
+                          <br>Heat:  <input type="text" class="fltPH" id="filterheat" placeholder="enter Heat Code" autocomplete="off"></input>
+                        </div>
+                        
+                        <div class="filterDateOPM">
+                          Date:  <input type="date" class="fltPH" id="filterdate7" autocomplete="off"></input><br>
+                          <label for="shift" id="form-1">Shift :</label>
+                            <select class="fltPH" id="filterShift7">
+                            <option value=""></option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Night">Night</option>
+                            </select>
+                          <br>Machine:  <input type="text" class="fltPH" id="filterMachine7" placeholder="enter machine" autocomplete="off"></input>
+                        </div>
+                      </div><hr><br>
+                      
+                      <button class="filterBut" onclick="filterclear()">Clear</button>
+                      <button class="filterBut" onclick="filterdata()">Filter</button>
+                      
+                  </div>
+            </div>
+            
+          
+          </div>
+      </div>
+
+      <center><div class="grid item4" id="tableView"></div></center><!--<table view>-->
+      <div id="direction_nav"></div>
+    </div>
+ 
+  <script>
+    var employees = [];
+      var operatorList = [];
+      var teamleaderList = [];
+      var supervisorList = [];
+
+    async function employeesList(){
+      await $.get("http://192.168.2.223:9101/employeeslist", function (data) { 
+          for(var i=0; i<data.length; i++){
+            employees.push(data[i])
+          }
+        //____________________________________________________________________
+        for(var k=0; k<employees.length; k++){
+          if(employees[k].position == "Operator"){
+            operatorList.push(employees[k].fullnameID.toUpperCase())
+          }else if(employees[k].position == "Team Leader"){
+            teamleaderList.push(employees[k].fullnameID.toUpperCase())
+          }else if(employees[k].position == "Supervisor"){
+            supervisorList.push(employees[k].fullnameID.toUpperCase())
+          }
+        }
+      })
+    }
+
+    function searchOperator() {
+      console.log("search operator")
+      $("<datalist id=OperatorDropdown></datalist>").appendTo("#operator")
+      $("#OperatorDropdown").html("")
+      opValue = document.getElementById("operator").value.toUpperCase()
+      for(var y=0;y<operatorList.length; y++){
+        var result = operatorList[y].match(opValue);
+        if (result!=null){
+          // console.log(operatorList[y])
+          $("<option>"+operatorList[y]+"</option>").appendTo("#OperatorDropdown")
+        }
+      }
+    }
+
+    function searchTeamLeader() {
+      console.log("search Teamleader")
+      $("<datalist id=TeamleaderDropdown></datalist>").appendTo("#teamleader")
+      $("#TeamleaderDropdown").html("")
+      opValue = document.getElementById("teamleader").value.toUpperCase()
+      for(var y=0;y<teamleaderList.length; y++){
+        var result = teamleaderList[y].match(opValue);
+        if (result!=null){
+          // console.log(teamleaderList[y])
+          $("<option>"+teamleaderList[y]+"</option>").appendTo("#TeamleaderDropdown")
+        }
+      }
+    }
+
+    function searchSupervisor() {
+      console.log("search Supervisor")
+      $("<datalist id=SupervisorDropdown></datalist>").appendTo("#supervisor")
+      $("#SupervisorDropdown").html("")
+      opValue = document.getElementById("supervisor").value.toUpperCase()
+      for(var y=0;y<supervisorList.length; y++){
+        var result = supervisorList[y].match(opValue);
+        if (result!=null){
+          // console.log(supervisorList[y])
+          $("<option>"+supervisorList[y]+"</option>").appendTo("#SupervisorDropdown")
+        }
+      }
+    }
+    function userValidation(){
+        if(sessionStatus != "true"){
+            swal.fire({
+                title: "SESSION EXPIRED!!!!",
+                text: "please Sign-in",
+                icon: "error",
+                confirmButtonText: "sign_in",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location="/RDMTraceUI/pages/login/signIn_ui.html";
+                    return 0;
+                }
+            });
+        }
+    }
+    </script>
+        
+</body>
+</html>

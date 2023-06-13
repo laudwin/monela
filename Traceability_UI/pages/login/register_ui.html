@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traceable RDM</title>
+
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="./signIn.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
+    <!--*********************************************<Links>*********************************************-->
+        <script src="/links/jQuery v3.5.1.js"></script>
+        <script src="/links/axios v0.19.0.js"></script>
+        <script src="/links/table2excel.js"></script>
+        <script src="/links/sweetAlert2.js"></script>
+    <!--*********************************************<Scripts>*********************************************-->
+        <script src="../Admin/admin.js"></script>
+
+</head>
+<body onload="privilegeOptions()">
+    
+   <div class="heading" onclick=" adminView()"><img src="/links/icons/RDM_Logo.svg" class="rdmLogo" /><h1 class="companyName">Rheinmetall Denel Munitions</h1></div>
+    <br>
+    <center><div class="formLayout">
+    
+            <div class="formLayout-view">
+                <div class="signHead"><i class="fas fa-id-card"></i>  Register</div><hr>
+                <br>
+                <div class="formFields">
+
+                <div id="messageboxArea"></div><br>
+                    <label for="Utype"><b>Primary_Function</b></label><br>
+                    <div class="usertype" id="usertype"></div><br>
+
+                    <label for="fname"><b>Privileges</b></label><br>
+                    <center><div class="prvlg" id="prvlg">
+                       
+                    </div></center><br>
+
+                    <label for="fname"><b>First Name</b></label><br>
+                    <input type="text" placeholder="Enter First Name" id="createfirstname" style="text-transform: uppercase;" autocomplete="off" required><br><br>
+
+                    <label for="lname"><b>Last Name</b></label><br>
+                    <input type="text" placeholder="Enter last Name" id="createlastname" style="text-transform: uppercase;" autocomplete="off" required><br><br>
+
+                    <label for="cnumber"><b>Clock Number</b></label><br>
+                    <input type="text" placeholder="Enter clock Number" id="createclocknumber" autocomplete="off" required><br><br>
+
+                    <label for="Cpsw"><b>Password</b></label><br>
+                    <input type="password" placeholder="Enter Password" id="createpassword" onkeyup="check();" required><br><br>
+
+                    <label for="Ccpsw"><b>Confirm Password</b></label><br>
+                    <input type="password" placeholder="Confirm Password" id="confirmpassword" onkeyup="check();" required><br>
+                        <span id="message"></span><br><br>
+
+                    <button type="submit" class="submitButton" name="insert" onclick="register()">Register</button><br><br>
+                    
+                        <span>already have an account <a href="./signIn_ui.html">sign in</a></span>
+                </div>
+            </div>
+    </div></center>
+
+
+</body>
+</html>

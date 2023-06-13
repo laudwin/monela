@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traceable RDM</title>
+
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="../production.css">
+    <link rel="stylesheet" href="./reportStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
+    <!--*********************************************<Links>************************************************-->
+        <script src="/links/jQuery v3.5.1.js"></script>
+        <script src="/links/axios v0.19.0.js"></script>
+        <script src="/links/table2excel.js"></script>
+        <script src="/links/sweetAlert2.js"></script>
+  
+      <!--*********************************************<Scripts>*********************************************-->
+        <script src="/index.js"></script>
+        <script src="../production.js"></script>
+        <script src="./dailyReport.js"></script>    
+ 
+      <!--*********************************************<********>*********************************************-->
+</head>
+<body id="body" style="zoom: 100%" onload="startSystem()">
+
+    <div class="container">
+        <div class="item1"><!--<top nav>-->
+          <div class="heading" onclick=" homePage()"><img src="/links/icons/RDM_Logo.svg" class="rdmLogo" /><h1>Rheinmetall Denel Munitions</h1></div>
+          <div id="userInfo"></div>
+        </div><br><br><br>
+
+        <div class="item2" id="item2">
+            <h2 class="productDescription"> FILE: Production daily report
+            <button class="closebut" onclick="closeTable()">Close</button>
+            <button class="Reportbut" onclick="startSystem()">New_Report</button></h2><hr>
+        </div>
+        <center><div id="filter_by_Date" class="tabcontent"></div></center>  
+
+
+</body>
+</html>

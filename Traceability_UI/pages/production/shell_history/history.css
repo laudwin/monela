@@ -1,0 +1,59 @@
+#filterCon{
+    display: flex;
+    justify-content: center;
+}
+.filterContainer{
+    border: solid 2px gray;
+    width: 500px;
+    margin: 5px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.filHolder{
+    background-color: lightgray;
+    border-radius: 5px;
+    font-size: 20px;
+}
+#listCon{
+    border: solid 2px gray;
+    width: 1200px;
+    height: 350px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: auto;
+}
+#msgDetails{
+    float: left;
+    color: green;
+}
+.noDataBut{
+    font-size: 20px;
+    background-color: orangered;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+    border: solid 2px orangered;
+    font-weight: bold;
+}
+.noDataBut:hover{
+    background-color: white;
+    color: orangered;
+}
+.XptE{
+    float: right;
+}
+.XptEbut{
+    background-color: orange;
+    color: black;
+    border: solid 2px orange;
+    border-radius: 2px;
+    font-weight: bold;
+    padding: 5px;
+}
+.XptEbut:hover{
+    background-color: white;
+    color: orange;
+}

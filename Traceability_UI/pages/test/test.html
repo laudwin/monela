@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>test program</p>
+
+    <script>
+        var dateC_new = new Date("2023-02-27");//create new date from existing one so that the porgram can recognise it as date not text
+        var dN=dateC_new.getDate()//get day value
+        console.log(dateC_new.toISOString().substring(0,10)+" ____: "+dN)
+        dateC_new.setDate(dateC_new.getDate() + 1);
+        dN=dateC_new.getDate()
+        console.log(dateC_new.toISOString().substring(0,10)+" ____: "+dN)
+
+    </script>
+</body>
+</html>
